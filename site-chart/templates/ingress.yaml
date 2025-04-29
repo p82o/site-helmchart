@@ -2,12 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Chart.Name }}-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: {{ .Chart.Name }}-ingress
   rules:
-  - http:
+  - host: {{ .Values.ingress.host }}
+    http:
       paths:
       - path: /
         pathType: Prefix

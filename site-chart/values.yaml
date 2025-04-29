@@ -6,3 +6,6 @@ image:
 
 service:
   port: 80
+
+ingress:
+  host: "example.dropfish.ru"
