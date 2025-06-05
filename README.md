@@ -21,3 +21,5 @@ helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheu
   --create-namespace \
   --version 73.2.0 \
   --values ./kube-prometheus-stack/values.yaml
+
+kubectl apply -f ./kube-prometheus-stack/ingress.yaml
