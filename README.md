@@ -12,3 +12,12 @@ helm upgrade --install cert-manager jetstack/cert-manager \
   --values ./cert-manager/values.yaml
 
 helm install site-chart ./site-chart
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheus-stack \
+  --namespace monitoring \
+  --create-namespace \
+  --version 73.2.0 \
+  --values ./kube-prometheus-stack/values.yaml
